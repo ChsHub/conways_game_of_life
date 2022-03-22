@@ -7,6 +7,8 @@ from os import urandom
 from PIL.Image import new
 from PIL.ImageTk import PhotoImage
 
+size = 100
+
 
 def get_random_cells(n=12):
     from random import randint
@@ -58,9 +60,9 @@ class Runner(Thread):
         self.image_label.quit()
 
 
-size = 100
-root = Tk()
-root.protocol("WM_DELETE_WINDOW", set_inactive)
-runner = Runner(root)
-runner.start()
-root.mainloop()
+if __name__ == '__main__':
+    root = Tk()
+    root.protocol("WM_DELETE_WINDOW", set_inactive)
+    runner = Runner(root)
+    runner.start()
+    root.mainloop()
